@@ -47,7 +47,7 @@ textarea {
   font: inherit;
 }
 .topbar {
-  background: var(--dark);
+  background: var(--green);
   color: #dbe9e4;
   text-align: center;
   font-size: 12px;
@@ -122,7 +122,7 @@ textarea {
   color: var(--green);
 }
 .nav-cta {
-  background: var(--navy);
+  background: var(--green);
   color: white;
   padding: 12px 18px;
   border-radius: 100px;
@@ -154,7 +154,7 @@ textarea {
     right: 25px;
     width: 560px;
     height: 560px;
-    transform: scale(.55);
+    transform: scale(.85);
     transform-origin: top right;
     z-index: 5;
 }
@@ -170,12 +170,12 @@ textarea {
         linear-gradient(
             90deg,
             rgba(246,247,242,.99) 0%,
-            rgba(246,247,242,.96) 28%,
-            rgba(246,247,242,.78) 48%,
-            rgba(246,247,242,.22) 72%,
-            rgba(246,247,242,.05) 100%
+            rgba(246,247,242,.96) 0%,
+            rgba(246,247,242,.78) 0%,
+            rgba(246,247,242,.22) 0%,
+            rgba(246,247,242,.05) 0%
         ),
-        url("images/hero-background.jpg");
+        url("images/hero-background.png");
 
     background-size: cover;
     background-position: 60% center;
@@ -217,11 +217,11 @@ textarea {
             linear-gradient(
                 180deg,
                 rgba(246,247,242,.98) 0%,
-                rgba(246,247,242,.94) 38%,
-                rgba(246,247,242,.55) 62%,
-                rgba(246,247,242,.15) 100%
+                rgba(246,247,242,.94) 0%,
+                rgba(246,247,242,.55) 0%,
+                rgba(246,247,242,.15) 0%
             ),
-            url("images/hero-background.jpg");
+            url("images/hero-background.png");
 
         background-size: cover;
         background-position: 62% center;
@@ -304,24 +304,11 @@ textarea {
 .btn.full {
   width: 100%;
 }
-.trust-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 28px;
-}
-.trust-row {
-    position: relative;
-    z-index: 2;
-    width: min(680px, 60%);
-}
 .energy-orbit {
   height: 560px;
   position: relative;
   border-radius: 44px;
-  background: linear-gradient(145deg, #dff0e6 0, #eef2df 48%, #f7dcc9 100%);
+  background: none;
   overflow: hidden;
   box-shadow: var(--shadow);
 }
@@ -377,8 +364,8 @@ textarea {
 }
 .solar b {
   height: 26px;
-  background: linear-gradient(135deg, #4b756f, #173c3a);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
 }
 .home-label {
   position: absolute;
@@ -386,7 +373,7 @@ textarea {
   left: 0;
   right: 0;
   text-align: center;
-  font-size: 9px;
+  font-size: 14px;
   letter-spacing: 0.2em;
   color: var(--muted);
   font-weight: 800;
@@ -424,17 +411,27 @@ textarea {
   z-index: 3;
 }
 .node span {
-  font-size: 21px;
+  font-size: 63px;
+  left: 0;
+  right: 0;
+  text-align: center;
   display: block;
   color: var(--green);
 }
 .node b {
-  font-size: 11px;
+  font-size: 14px;
+  left: 0;
+  right: 0;
+  text-align: center;
   display: block;
   margin-top: 5px;
 }
 .node small {
-  font-size: 9px;
+  font-size: 11px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  display: block;
   color: var(--muted);
 }
 .node-ac {
@@ -480,6 +477,87 @@ textarea {
   bottom: 104px;
   transform: rotate(24deg);
 }
+
+/* Container must have relative positioning to anchor the overlapping badge */
+.impact-wrapper {
+  position: relative;
+  margin-top: 5px; /* Leaves physical space at the top so the badge doesn't overflow outside the page/parent */
+  
+}
+
+/* Layout strip using a responsive grid with no border dividers */
+.impact-strip {
+  background-color: #0b131a;
+  padding: 50px 5% 40px 5%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* Individual card styling with comfortable spacing and padding */
+.impact-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  border-radius: none;
+  padding: 20px 22px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.impact-card:hover {
+  border-color: rgba(74, 222, 128, 0.4); /* Subtle green glow on hover matching brand */
+  transform: translateY(-2px);
+}
+
+/* Typography stacking */
+.impact-text {
+  display: flex;
+  flex-direction: column;
+  padding-right: 12px;
+}
+
+.impact-text strong {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.impact-text span {
+  color: #94a3b8;
+  font-size: 11.5px;
+  line-height: 1.4;
+}
+
+/* Clean SVG sizing and alignment on the right */
+.impact-card svg {
+  flex-shrink: 0;
+  height: 40px;
+  width: auto;
+  opacity: 0.9;
+}
+
+/* The box-like badge that bridges/laps the boundary */
+.what-we-do-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers it horizontally and pulls it exactly half-way up */
+  
+  /* Styling to look like a crisp, high-end professional UI tag */
+  background-color: #0b131a; /* Matches your dark theme background color */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 8px 20px;
+
+}
+
+
 .impact-strip {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1925,3 +2003,78 @@ footer a:hover {
     padding: 22px;
   }
 }
+
+
+.eyebrow {
+  background-color:rgba(246, 247, 242, 0.863);
+  padding: 8px 14px;
+  border-radius: 6px;
+  display: inline-block;
+}
+.eyebrow .heating {
+  color: #F59E0B; /* Orange */
+}
+
+.eyebrow .cooling {
+  color: #0EA5E9; /* Blue */
+}
+
+.eyebrow .power {
+  color: #0D9B76; /* Green */
+}
+
+.eyebrow .control {
+  color: #526B7A; /* Slate grey-blue */
+}
+
+.eyebrow .separator {
+  color: #9CA3AF;
+}
+.eyebrow ::backdrop{
+    color: #000;
+}
+
+
+h1.hero-title {
+  color: #0B1720 !important;
+  
+}
+  
+.hero-title span {
+  background: linear-gradient(
+    90deg,
+    #F08A38,
+    #FACC15,
+    #0EA5E9,
+    #0D9B76,
+    #F08A38
+  );
+  font-family: "Futura Bold", "Futura", sans-serif;
+  background-size: 300% 100%;
+  background-position: 0% 50%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  animation: energyFlow 5s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(13, 155, 118, 0.12));
+}
+
+@keyframes energyFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+  
+}
+
+
